@@ -1,0 +1,117 @@
+{
+  "version": 8,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 28,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "build",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_LINKER_TYPE": "LLD",
+        "CMAKE_CXX_FLAGS": "-stdlib=libstdc++",
+        "CMAKE_EXE_LINKER_FLAGS": "-lstdc++",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "release",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "debug",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "debug-test",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "ENABLE_TEST": true
+      }
+    },
+    {
+      "name": "release-test",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "ENABLE_TEST": true
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "release",
+      "configurePreset": "release",
+      "jobs": 8
+    },
+    {
+      "name": "debug",
+      "configurePreset": "debug",
+      "jobs": 8
+    },
+    {
+      "name": "debug-test",
+      "configurePreset": "debug-test",
+      "jobs": 8
+    },
+    {
+      "name": "release-test",
+      "configurePreset": "release-test",
+      "jobs": 8
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "unittest-debug",
+      "configurePreset": "debug-test",
+      "filter": {
+        "include": {
+          "label": "unittest"
+        }
+      },
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "arguments": ["-L", "regression"],
+        "stopOnFailure": true
+      }
+    },
+    {
+      "name": "unittest-release",
+      "configurePreset": "release-test",
+      "filter": {
+        "include": {
+          "label": "unittest"
+        }
+      },
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {}
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "default",
+      "steps": [
+        { "type": "configure", "name": "debug-test" },
+        { "type": "build", "name": "debug-test" },
+        { "type": "test", "name": "unittest-debug" }
+      ]
+    }
+  ]
+}

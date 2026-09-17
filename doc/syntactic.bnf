@@ -1,0 +1,56 @@
+<command> ::= <motion_command>
+            | <operator_command>
+            | <mode_command>
+            | <control_command>
+            | <insert_command>
+            | <visual_command>
+            | <lin_command>
+
+<motion_command> ::= <grid_motion> | <word_motion> | <jump>
+<grid_motion> ::= <KEY_H> | <KEY_J> | <KEY_K> | <KEY_L>
+                | <KEY_h> | <KEY_j> | <KEY_k> | <KEY_l>
+<word_motion> ::= <KEY_w> | <KEY_e> | <KEY_b>
+<jump> ::= <KEY_SPACE> | <KEY_SHIFT_SPACE>
+
+<operator_command> ::= <operate> <motion>
+<operate> ::= <KEY_d> | <KEY_y>
+<motion> ::= <grid_motion> | <word_motion>
+
+<mode_command> ::= <enter_insert> | <enter_visual> | <enter_lin> | <escape>
+<enter_insert> ::= <KEY_a> | <KEY_A> | <KEY_i> | <KEY_I>
+<enter_visual> ::= <KEY_v> | <KEY_V>
+<enter_lin> ::= <KEY_g> | <KEY_G>
+<escape> ::= <KEY_ESC>
+
+<control_command> ::= <save>
+                    | <quit>
+                    | <undo>
+                    | <redo>
+                    | <cursor_clone>
+                    | <search>
+                    | <delete_char>
+                    | <paste>
+
+<save> ::= <KEY_s>
+<quit> ::= <KEY_q>
+<undo> ::= <KEY_u>
+<redo> ::= <KEY_U>
+<cursor_clone> ::= <KEY_c> | <KEY_C>
+<search> ::= <KEY_SLASH> | <KEY_n> | <KEY_N>
+<delete_char> ::= <KEY_x>
+<paste> ::= <KEY_p>
+
+<insert_command> ::= <insert_text> | <insert_edit>
+<insert_text> ::= <TEXT_INPUT> | <KEY_PRINTABLE>
+                | <KEY_ENTER> | <KEY_TAB> | <KEY_SPACE>
+<insert_edit> ::= <KEY_BACKSPACE> | <KEY_DELETE>
+
+<visual_command> ::= <visual_motion> | <visual_edit>
+<visual_motion> ::= <visual_linear_motion> | <visual_rectangle_motion>
+<visual_linear_motion> ::= <grid_motion> | <word_motion>
+<visual_rectangle_motion> ::= <grid_motion>
+<visual_edit> ::= <KEY_d> | <KEY_x> | <KEY_y>
+
+<lin_command> ::= <lin_motion> | <lin_edit>
+<lin_motion> ::= <grid_motion>
+<lin_edit> ::= <KEY_d> | <KEY_x> | <KEY_y> | <KEY_ESC>

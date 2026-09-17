@@ -1,0 +1,23 @@
+<KEY_PRINTABLE> ::= <unicode_scalar_value>
+
+<TEXT_INPUT> ::= <unicode_scalar_value>+
+
+<KEY_ESC> ::= "Escape"
+<KEY_BACKSPACE> ::= "Backspace"
+<KEY_DELETE> ::= "Delete"
+<KEY_SPACE> ::= "Space"
+<KEY_SHIFT_SPACE> ::= "Shift+Space"
+<KEY_ENTER> ::= "Enter"
+<KEY_TAB> ::= "Tab"
+<KEY_SLASH> ::= "/"
+
+<unicode_scalar_value> ::= U+0000..U+D7FF | U+E000..U+10FFFF
+
+<KEY_a> ::= "a"  <KEY_A> ::= "A"  <KEY_i> ::= "i"  <KEY_I> ::= "I"
+<KEY_v> ::= "v"  <KEY_V> ::= "V"  <KEY_g> ::= "g"  <KEY_G> ::= "G"
+<KEY_q> ::= "q"  <KEY_s> ::= "s"  <KEY_u> ::= "u"  <KEY_U> ::= "U"
+<KEY_c> ::= "c"  <KEY_C> ::= "C"  <KEY_n> ::= "n"  <KEY_N> ::= "N"
+<KEY_d> ::= "d"  <KEY_y> ::= "y"  <KEY_x> ::= "x"  <KEY_p> ::= "p"
+<KEY_h> ::= "h"  <KEY_j> ::= "j"  <KEY_k> ::= "k"  <KEY_l> ::= "l"
+<KEY_H> ::= "H"  <KEY_J> ::= "J"  <KEY_K> ::= "K"  <KEY_L> ::= "L"
+<KEY_w> ::= "w"  <KEY_e> ::= "e"  <KEY_b> ::= "b"

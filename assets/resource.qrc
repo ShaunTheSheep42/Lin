@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="yezigongchangboboti.ttf">fonts/chinese/yezigongchangboboti.ttf</file>
+  </qresource>
+
+  <qresource prefix="/fonts/chinese">
+    <file alias="yezigongchangboboti.ttf">fonts/chinese/yezigongchangboboti.ttf</file>
+  </qresource>
+
+  <qresource prefix="/fonts/english">
+    <file alias="RecMonoCasualNerdFont-Bold.ttf">fonts/english/RecMonoCasualNerdFont-Bold.ttf</file>
+    <file alias="RecMonoCasualNerdFont-BoldItalic.ttf">fonts/english/RecMonoCasualNerdFont-BoldItalic.ttf</file>
+    <file alias="RecMonoCasualNerdFont-Italic.ttf">fonts/english/RecMonoCasualNerdFont-Italic.ttf</file>
+    <file alias="RecMonoCasualNerdFont-Regular.ttf">fonts/english/RecMonoCasualNerdFont-Regular.ttf</file>
+  </qresource>
+</RCC>
