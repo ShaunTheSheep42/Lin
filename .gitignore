@@ -1,0 +1,6 @@
+build/
+.cache/
+
+external/*
+!external/CMakeLists.txt
+!external/CheckAndFetch.py
