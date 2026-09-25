@@ -6,6 +6,9 @@ add_lin_library(
     MODULE
     Lin.cppm
 
+    LINK
+    Support
+
     INCLUDE
     ${EXTERNAL_LIBS_DIR}/cli11
 )

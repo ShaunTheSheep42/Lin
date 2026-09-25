@@ -3,8 +3,9 @@ set(LIN_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
 include(AddLib)
 
-add_subdirectory(Basic)
 add_subdirectory(App)
+add_subdirectory(Basic)
+add_subdirectory(Support)
 
 add_executable(lin main.cpp)
 target_link_libraries(lin PUBLIC LinApp)
