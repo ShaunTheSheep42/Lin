@@ -33,21 +33,12 @@ LIBS = [
         ],
     },
     {
-        "NAME": "cli11",
-        "VERSION": "v2.6.2",
-        "TARGET": "https://github.com/CLIUtils/CLI11.git",
+        "NAME": "glaze",
+        "VERSION": "v9.0.0",
+        "TARGET": "https://github.com/stephenberry/glaze.git",
         "KEEP": [
-            "include/CLI",
+            "include/glaze",
             "LICENSE",
-        ],
-    },
-    {
-        "NAME": "nlohmann_json",
-        "VERSION": "v3.12.0",
-        "TARGET": "https://github.com/nlohmann/json.git",
-        "KEEP": [
-            "include/nlohmann",
-            "LICENSE.MIT",
         ],
     },
     {

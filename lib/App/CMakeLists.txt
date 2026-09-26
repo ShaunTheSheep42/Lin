@@ -1,14 +1,12 @@
 add_lin_library(
     App
     STATIC
-    Lin.cpp
+    App.cpp
 
     MODULE
-    Lin.cppm
+    App.cppm
 
     LINK
+    Debug
     Support
-
-    INCLUDE
-    ${EXTERNAL_LIBS_DIR}/cli11
 )

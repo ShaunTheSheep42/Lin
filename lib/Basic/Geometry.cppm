@@ -2,15 +2,30 @@ module;
 
 export module Basic.Geometry;
 
-namespace lin {
+export namespace Lin {
 
 struct XYPair {
   int x = 0;
   int y = 0;
 
-  friend bool operator==(XYPair lhs, XYPair rhs) {
-    return lhs.x == rhs.x && lhs.y == rhs.y;
+  friend bool operator==(XYPair a, XYPair b) {
+    return a.x == b.x && a.y == b.y;
+  }
+
+  friend XYPair operator+(XYPair a, XYPair b) { return {a.x + b.x, a.y + b.y}; }
+  friend XYPair &operator+=(XYPair &a, XYPair b) {
+    a.x += b.x;
+    a.y += b.y;
+    return a;
+  }
+  friend XYPair operator-(XYPair a, XYPair b) { return {a.x - b.x, a.y - b.y}; }
+  friend XYPair &operator-=(XYPair &a, XYPair b) {
+    a.x -= b.x;
+    a.y -= b.y;
+    return a;
   }
 };
 
-} // namespace lin
+using Position = XYPair;
+
+} // namespace Lin

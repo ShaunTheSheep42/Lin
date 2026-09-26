@@ -5,7 +5,7 @@ module;
 
 export module Support:Random;
 
-namespace lin {
+namespace Lin {
 
 export class Random {
 public:
@@ -29,4 +29,4 @@ private:
   std::mt19937 gen;
 };
 
-} // namespace lin
+} // namespace Lin

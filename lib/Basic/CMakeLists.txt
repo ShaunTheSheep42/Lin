@@ -6,12 +6,13 @@ add_lin_library(
     String.cpp
     # Block.cpp
 
-    LINK
-    Support
-
     MODULE
     Geometry.cppm
     Char.cppm
     String.cppm
     # Block.cppm
+
+    LINK
+    Debug
+    Support
 )

@@ -5,6 +5,7 @@ include(AddLib)
 
 add_subdirectory(App)
 add_subdirectory(Basic)
+add_subdirectory(Debug)
 add_subdirectory(Support)
 
 add_executable(lin main.cpp)

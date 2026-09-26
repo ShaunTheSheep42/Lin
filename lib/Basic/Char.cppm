@@ -4,9 +4,7 @@ module;
 
 export module Basic.Char;
 
-// WARN: Only supports English, Chinese, Emojis, and NerdFonts Icon.
-
-export namespace lin {
+export namespace Lin {
 
 using Char = char32_t;
 
@@ -35,4 +33,4 @@ bool IsIcon(char32_t c);
 bool IsEmoji(char32_t c);
 bool IsNerdFontIcon(char32_t c);
 
-} // namespace lin
+} // namespace Lin

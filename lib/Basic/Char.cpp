@@ -4,7 +4,7 @@ module;
 
 module Basic.Char;
 
-namespace lin {
+namespace Lin {
 
 // The highest bit is used as a surrogate pair flag
 constexpr uint32_t FLAG_SURROGATE = 1u << 31;
@@ -94,4 +94,4 @@ bool IsNerdFontIcon(char32_t c) {
 // Only emoji or NerdFont symbols are considered double-width icons
 bool IsIcon(char32_t c) { return IsEmoji(c) || IsNerdFontIcon(c); }
 
-} // namespace lin
+} // namespace Lin

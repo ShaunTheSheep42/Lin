@@ -1,12 +1,13 @@
 module;
 
 #include <string>
+#include <vector>
 
 module Basic.String;
 
 import Basic.Char;
 
-namespace lin {
+namespace Lin {
 
 template <typename T> String MakeString(T c) {
   String s;
@@ -16,10 +17,18 @@ template <typename T> String MakeString(T c) {
 
 String MakeString(const std::u32string &s32) {
   String s;
-  for (const auto &c : s32) {
-    s.push_back(MakeChar(c));
+  std::vector<Char> chars;
+  for (const auto &c32 : s32) {
+    Char c = MakeChar(c32);
+    if (c == '\n') {
+      s.push_back(chars);
+      chars.clear();
+      continue;
+    }
+
+    chars.push_back(c);
     if (IsFullWidth(c))
-      s.push_back(PlaceHolder);
+      chars.push_back(PlaceHolder);
   }
 
   return s;
@@ -27,10 +36,15 @@ String MakeString(const std::u32string &s32) {
 
 std::u32string ToStdU32String(const String &s) {
   std::u32string s32;
-  for (const auto &c : s)
-    s32.push_back(ToRawChar(c));
+  for (const auto &l : s) {
+    for (const auto &c : l)
+      s32.push_back(ToRawChar(c));
 
+    s32.push_back('\n');
+  }
+
+  s32.pop_back();
   return s32;
 }
 
-} // namespace lin
+} // namespace Lin

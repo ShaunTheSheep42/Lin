@@ -10,13 +10,13 @@ import Support;
 // Test 1: Verify generated numbers are within type limits
 TEST_CASE("Random number is within type limits", "[random]") {
   for (int i = 0; i < 1000; ++i) {
-    int val = lin::Random::Number<int>();
+    int val = Lin::Random::Number<int>();
     REQUIRE(val >= std::numeric_limits<int>::min());
     REQUIRE(val <= std::numeric_limits<int>::max());
   }
 
   for (int i = 0; i < 1000; ++i) {
-    short val = lin::Random::Number<short>();
+    short val = Lin::Random::Number<short>();
     REQUIRE(val >= std::numeric_limits<short>::min());
     REQUIRE(val <= std::numeric_limits<short>::max());
   }
@@ -26,7 +26,7 @@ TEST_CASE("Random number is within type limits", "[random]") {
 TEST_CASE("Random numbers have good distribution", "[random]") {
   std::set<int> unique_values;
   for (int i = 0; i < 10000; ++i) {
-    unique_values.insert(lin::Random::Number<int>());
+    unique_values.insert(Lin::Random::Number<int>());
   }
   // Among 10000 generations, unique values should be very high
   REQUIRE(unique_values.size() > 9500);
@@ -43,7 +43,7 @@ TEST_CASE("Random is thread-safe", "[random][thread]") {
   for (int i = 0; i < num_threads; ++i) {
     threads.emplace_back([&results, &mtx] {
       for (int j = 0; j < nums_per_thread; ++j) {
-        int val = lin::Random::Number<int>();
+        int val = Lin::Random::Number<int>();
         std::lock_guard<std::mutex> lock(mtx);
         results.push_back(val);
       }
@@ -64,9 +64,9 @@ TEST_CASE("Random is thread-safe", "[random][thread]") {
 
 // Test 4: Template type test
 TEST_CASE("Random works with different integral types", "[random][template]") {
-  auto char_val = lin::Random::Number<char>();
-  auto long_val = lin::Random::Number<long>();
-  auto uint32_val = lin::Random::Number<uint32_t>();
+  auto char_val = Lin::Random::Number<char>();
+  auto long_val = Lin::Random::Number<long>();
+  auto uint32_val = Lin::Random::Number<uint32_t>();
 
   REQUIRE(char_val >= std::numeric_limits<char>::min());
   REQUIRE(long_val >= std::numeric_limits<long>::min());
