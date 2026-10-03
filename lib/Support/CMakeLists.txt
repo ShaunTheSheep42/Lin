@@ -2,9 +2,11 @@ add_lin_library(
     Support
 
     MODULE
+    Id.cppm
     Env.cppm
     Enum.cppm
     Random.cppm
+    Version.cppm
     Support.cppm
 
     INCLUDE

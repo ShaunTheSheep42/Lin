@@ -1,40 +1,13 @@
 module;
 
-#include <cstdint>
-
 module Basic.Char;
 
 namespace Lin {
 
-// The highest bit is used as a surrogate pair flag
-constexpr uint32_t FLAG_SURROGATE = 1u << 31;
-constexpr uint32_t FLAG_FULLWIDTH = 1u << 30;
-constexpr uint32_t MASK_CODEPOINT = 0x1FFFFF; // 21-bit mask
-
-template <typename T> Char MakeChar(T a) {
-  Char c = static_cast<char32_t>(a);
-  if (IsChinese(a) || IsIcon(a))
-    c |= FLAG_FULLWIDTH;
-
-  return c;
-}
-
-template <typename T> Char MakeChar(T a, T b) {
-  uint32_t high = static_cast<uint32_t>(a) - 0xD800;
-  uint32_t low = static_cast<uint32_t>(b) - 0xDC00;
-  uint32_t codepoint = (high << 10) + low + 0x10000;
-
-  Char c = codepoint | FLAG_SURROGATE;
-  // HACK: A rough assessment is made here
-  c |= FLAG_FULLWIDTH;
-
-  return c;
-}
-
 char32_t ToRawChar(Char c) { return c & MASK_CODEPOINT; }
 
 bool IsSurrogatePair(Char c) { return (c & FLAG_SURROGATE) != 0; }
-bool IsDoubleWidth(Char c) { return (c & FLAG_FULLWIDTH) != 0; }
+bool IsFullWidth(Char c) { return (c & FLAG_FULLWIDTH) != 0; }
 
 bool IsChinese(char32_t c) {
   // Basic Chinese characters

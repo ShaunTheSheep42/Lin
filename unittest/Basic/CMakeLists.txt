@@ -1,1 +1,12 @@
-add_lin_unittest(Basic Geometry.cpp LINK Basic)
+add_lin_unittest(
+    Basic
+    String.cpp
+    Text.cpp
+    Canvas.cpp
+    SpatialIndex.cpp
+    Buffer.cpp
+    History.cpp
+    View.cpp
+    LINK
+    Basic
+)
